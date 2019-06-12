@@ -1,2 +1,3 @@
-#!/bin/bash\n
-print pwd\n
+#!/bin/bash
+print pwd
+
