@@ -1,2 +1,2 @@
-#!/bin/bash
-ls -d . */ | wc -l
+B#!/bin/bash
+find . -mindepth 1 -type d "*" | wc -l
