@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%s\n" [[:alnum:]][[:alnum:],!oo]
+echo {a..z}{a..z} | grep -v oo | fmt -2
