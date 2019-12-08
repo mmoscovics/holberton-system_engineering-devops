@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# Show connected IP addresses
-hostname -I

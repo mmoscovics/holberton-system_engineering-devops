@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# Bash PID without ps
-pgrep -l "bash"
