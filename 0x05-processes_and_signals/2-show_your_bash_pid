@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Script that displats lines ontaining the bash word, for bash PID
+# shellcheck disable=SC2009
+
+ps -aux | grep bash
