@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script that displats the PID along with process name without ps
+
+pgrep -l bash
