@@ -2,6 +2,5 @@
 # Configures a new Ubuntu machine to install nginx
 sudo apt-get -y update
 sudo apt-get -y install nginx
-sudo mkdir -p /var/www/html
+sudo echo "Holberton School" | sudo tee /var/www/html/index.nginx-debain.html
 sudo service nginx start
-sudo echo "Holberton School" > /var/www/html/index.html
