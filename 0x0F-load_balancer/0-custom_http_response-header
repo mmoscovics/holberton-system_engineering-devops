@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Configures a brand new machine to specified requirements
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo sed -i "19 i \\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
+sudo service nginx start
