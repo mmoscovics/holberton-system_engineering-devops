@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Display Record Type and Destination
+
+print_sub()
+{
+	dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tail -n 1 | awk -v sub_d="$2" '{print "The subdomain " sub_d " is a " $4 " record and points to " $5}'
+}
+
+if [ $# -eq 2 ];
+then
+	print_sub "$1" "$2"
+else
+	subs=("www" "lb-01" "web-01" "web-02")
+	for sub in "${subs[@]}";
+	do
+		print_sub "$1" "$sub"
+	done
+fi
