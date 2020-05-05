@@ -8,6 +8,7 @@ from sys import argv
 if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
     users = requests.get(url + "users/").json()
+    task_dict = {}
     for user in users:
         user_id = str(user["id"])
         name = user["name"]
@@ -17,7 +18,6 @@ if __name__ == "__main__":
             task_list.append({"task": task["title"],
                               "completed": task["completed"],
                               "username": user["username"]})
-        task_dict = {}
         task_dict[user_id] = task_list
     with open("todo_all_employees.json", "w") as file:
         json.dump(task_dict, file)
