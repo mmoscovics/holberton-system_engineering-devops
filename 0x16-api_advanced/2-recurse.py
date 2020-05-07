@@ -6,7 +6,7 @@ if not valid subreddit return None.
 import requests
 
 
-def recurse(subreddit, hot_list=[], after=""):
+def recurse(subreddit, hot_list=[], after=None):
     """Returns list of hot article titles of given subreddit."""
 
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
@@ -15,10 +15,10 @@ def recurse(subreddit, hot_list=[], after=""):
                             params={"after": after})
     if response.status_code != 200:
         return None
-    else:
-        children = response.json()["data"]["children"]
-        hot_list.append([title["data"]["title"] for title in children])
-        after = response.json()["data"]["after"]
+    children = response.json()["data"]["children"]
+    for title in children:
+        hot_list.append(title["data"]["title"])
+    after = response.json()["data"]["after"]
     if after is None:
         return hot_list
     return recurse(subreddit, hot_list, after)
